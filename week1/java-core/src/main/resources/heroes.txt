@@ -1,0 +1,2 @@
+Dan,25,Mage
+Randolph,30,Paladin
