@@ -8,6 +8,10 @@ package com.revature.threads;
  * can effect that object.
  * The lock is only released, when the thread completes execution
  * of the synchronized method.
+ * 
+ * Each object has what we call a Monitor. 
+ * when a thread enters BLOCKED code it obtains a LOCK on this Monitor
+ * The object is then locked for that thread's personal use.
  */
 
 public class Bank {
@@ -19,6 +23,16 @@ public class Bank {
 	
 	public synchronized void deposit(int amount) {
 		this.balance += amount;
+	}
+	
+	public void exampleMethod() {
+		//some code that you don't care if it runs concurrently
+		
+		//parameter you need to pass to the block
+		//is called a mutex
+		synchronized (this) {
+			//code that we don't want to run concurrently
+		}
 	}
 	
 }
