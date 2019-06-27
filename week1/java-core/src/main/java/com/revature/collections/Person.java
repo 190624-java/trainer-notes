@@ -1,6 +1,9 @@
 package com.revature.collections;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Person implements Comparable<Person>{
 	private String name;
@@ -92,6 +95,27 @@ public class Person implements Comparable<Person>{
 		//if you return +number => this comes after other
 	}
 	
+	public static void sortByAge(List<Person> personList) {
+		Collections.sort(personList, new Person.PersonAgeComparator());
+	}
 	
+	//You can have nested class (inner classes)
+	static class PersonAgeComparator implements Comparator<Person> {
+		public int compare(Person one, Person other) {
+			return one.age - other.age;//youngest to oldest
+			//return other.age - one.age; //oldest to youngest
+		}
+	}
 	
-}
+	//can have as many inner classes as you want
+	static class PersonPopularComparator implements Comparator<Person> {
+		public int compare(Person one, Person other) {
+			return other.friends.length - one.friends.length;
+			// person with more friends goes before person with less
+		}
+	}
+	
+	static class PersonHeightComparator {}
+	static class PersonAwesomenessComparator {}
+	
+}//ends person class
