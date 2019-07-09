@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Variable Scopes</title>
+</head>
+<body>
+    <script>
+        funScope();
+        /*
+         * Remember,
+         * function funScope(){...}
+         * is equivalent to...
+         * var funScope = function(){...};
+         */
+        function funScope(){
+            console.log(a); //var will get its declaration hoisted to the top of its scope
+            if(true){
+                var a = 5;
+            }
+            console.log(a);
+        }
+
+        function blockScope(){
+            if(true) {
+                //console.log(b); //this throws an uncaught reference error, because block scoped variables do not get hoisted to the top of their scope
+                let b = 10;
+            }
+            //console.log(b);//b is outside of scope
+        }
+
+        blockScope();
+
+        //shadowing is an important concept in js when it comes to variable scopes.
+
+        myVar = 'Hello';//global scope
+        function someFunc(){
+            console.log(myVar);//prints undefined
+            var myVar = 'Bye';//local scoped variable that is temporarily shadowing the global variable
+            console.log(myVar);//prints 'Bye'
+        }
+        someFunc();
+        console.log(myVar);//prints 'Hello'
+
+        function someOtherFunc(){
+            console.log(myVar);//prints 'Hello'
+            myVar = 'Bye';//the same global variable
+            console.log(myVar);//prints 'Bye'
+        }
+        someOtherFunc();
+        console.log(myVar);//prints 'Bye'
+
+    </script>
+</body>
+</html>

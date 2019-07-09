@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Intro To CSS</title>
+    <style>
+      body {
+        max-width: 800px;
+        margin: auto;
+        font-family: Helvetica, Arial;
+      }
+      pre > code {
+        background-color: inherit;
+      }
+      code {
+        background-color: #fbe5e1;
+        color: #c0341d;
+      }
+      .boxExample {
+        /* This is a comment in CSS */
+        width: 200px;
+        height: 20px;
+        padding: 5px 1px 8px 20px;
+        border: 2px solid green;
+        margin-top: 10px;
+      }
+      .class1 > .class2 {
+        /* direct descendant selector */
+        color: purple;
+      }
+      .class1 .class2 {
+        /* all descendant selector */
+        font-weight: bolder;
+      }
+      p .class1 {
+        color: grey;
+      }
+      /* if you want all footers and all headers to be styled the same*/
+      footer,
+      header {
+        /* some styles...*/
+        color: black;
+      }
+      /* the above selector is the equivalent of the following 
+            footer {
+                color: black;
+            }
+            header {
+                color: black;
+            }
+        */
+    </style>
+  </head>
+  <body>
+    <h1 id="top">CSS - Cascading Style Sheets</h1>
+    <div>
+      <p>
+        Our html has gotten kinda fancy, but it's still ugly and plain. The
+        browser applies some default styling with certain tags, like bolding and
+        heading tags, but there's no fancy colors or fonts or spacing. We use
+        CSS to add styling.
+      </p>
+
+      <!--
+        CSS stands for Cascading style sheets
+         - way of styling our html markup using rules that we define.
+         - There are 3 ways of including CSS in our HTML file.
+    -->
+      <h3>Ways of including styles:</h3>
+      <ul>
+        <li>inline styling</li>
+        <li>using internal stylesheet(s)</li>
+        <li>using external stylesheet(s)</li>
+      </ul>
+      <p>
+        It is best practice to use <strong>external stylesheets.</strong>, but
+        in this page we will use internal and inline. It's best practice,
+        because it allows for seperation of concerns, basically your html and
+        css will be separated, so that changing a rule in one place will apply
+        to every html page that uses the stylesheet.
+      </p>
+    </div>
+    <h2>Inline Styling</h2>
+    <div>
+      <p>
+        Can be performed on any HTML element using the "style" attribute. Within
+        the quotation marks defining the value of the style attribute, we define
+        a <b>CSS rule</b> which tells the browser what styling to apply to the
+        content of that element. CSS rules are key-value pairs, separated by a
+        colon (:). There are very many, we will not talk about all of them, but
+        here's a simple one.
+      </p>
+      <p>
+        We will use a span tag to color
+        <span style="color:blue">this word</span>
+        blue.
+      </p>
+      <pre> <!-- pre-formatted-->
+            <code>&lt;span style="color:blue; background-color:orange"&gt; this text appears blue with an orange background&lt;/span&gt;</code>
+        </pre>
+      <p>
+        <span style="color:blue; background-color:orange"
+          >this text appears blue with an orange background</span
+        >
+      </p>
+    </div>
+    <h2>Internal Stylesheets</h2>
+    <p>
+      In the head tag, we can specify a style tag, within which we can define a
+      CSS stylesheet that will apply to the whole document. A stylesheet is a
+      set of CSS selectors with associated rules for styling our HTML.
+    </p>
+    <p>
+      A CSS selector is how we select specific HTML elements that we want to
+      style. After the selector we place curly braces - <code>{}</code> - and
+      within the curly braces we write the CSS rules which only apply to
+      elements selected by the CSS selector.
+    </p>
+    <p>
+      The CSS rules we specified for the body selector, restrict the width of
+      the body to be 800 pixels at maximum and sets the margin to be
+      automatically calculated which will center the element within its parent
+      element.
+    </p>
+    <h2>Selectors</h2>
+    <div>
+      <h4>Element Selectors</h4>
+      <p>Use the tag name to identify which elements the CSS rules apply to.</p>
+      <br />
+      <h4>Class and ID selectors</h4>
+      <p>
+        If we want to be more specific about a subset of elements that we want
+        to select, we can use the class and id selectors.
+        <br />
+        All elements can have the id and class attributes. The id attribute
+        values must be unique on the page. Class attribute values don't have to
+        be unique and are used for the purpose of applying css to all elements
+        with a specified class (or classes).
+      </p>
+      <p>
+        The class selector is denoted by a period followed by the class name
+        (<code>.classname</code>) and selects all elements whose class
+        attribute's values contain the specified value - which you define.
+      </p>
+      <p>
+        you can also combine element selectors with class selectors to get more
+        specific. For example, if you want to select all divs with the class
+        "jumbo":
+      </p>
+      <pre>
+            <code>div.jumbo { height: 1000px; width: 2000px; }</code>
+        </pre>
+      <p>
+        The id attribute can be applied to any element and uniquely identifies
+        that element. The id selector is denoted by a pound sign, followed by
+        the id (<code>#uniqueIdHere</code>). Say we have an element :
+        <code>&lt;span id="first"&gt;I am first!&lt;/span&gt;</code>
+        We can target this element as follows:
+      </p>
+      <pre>
+            <code>#first {font-size: 32pt;}</code>
+        </pre>
+    </div>
+    <h4>Pseudo-class and pseudo-element selectors</h4>
+    <div>
+      <p>
+        A pseudo-class is a specific keyword at the end of a selector used to
+        specify that you want to style the selected element, but only when it is
+        in a certain state - for example, when the user is hovering the mouse
+        over the elements, or when a checkbox is disabled or checked. The syntax
+        is to use a colon (<code>:</code>) to precede the pseudo-class. Here's a
+        short list of some pseudo-class selectors:
+      </p>
+      <ul>
+        <li>:active</li>
+        <li>:visited</li>
+        <li>:checked</li>
+        <li>:disabled</li>
+        <li>:first</li>
+        <li>:nth-child()</li>
+        <li>:hover</li>
+      </ul>
+
+      <p>
+        Pseudo-elements are similar to pseudo-classes, but are prepended by two
+        colons. Some common pseudo-elements are:
+      </p>
+      <ul>
+        <li>::before</li>
+        <li>::after</li>
+        <li>::first-line</li>
+        <li>::first-letter</li>
+      </ul>
+    </div>
+    <h4>Child and Descendant Selectors</h4>
+    <div>
+      <p>
+        If you want to be able to only select elements that are nested inside of
+        other elements (for example, selecting all divs within other divs) we
+        use descendant selectors.
+      </p>
+      <p>
+        There are two ways of selecting nested elements - descendant and direct
+        descendant. To select direct descendants use the
+        <code>&gt;</code> symbol. For example:
+      </p>
+      <pre>
+            <code>div > p {...}</code>
+        </pre>
+      <p>
+        If we want to select any descendants of a div tag that are of type p,
+        then we simply separate the selectors by a space. For example:
+      </p>
+      <pre>
+            <code>div p {...}</code>
+        </pre>
+      <pre>
+            <code>
+                &lt;div&gt;
+                    &lt;p&gt;
+                        &lt;span&gt; some text &lt;/span&gt;
+                    &lt;/p&gt;
+                    &lt;main&gt;
+                        &lt;p&gt; other text &lt;/p&gt;
+                    &lt;/main&gt;
+                &lt;/div&gt;
+            </code>
+        </pre>
+      <!-- Below is descendant selector example -->
+      <div class="class1">
+        outer div text
+        <div class="class2">direct child text</div>
+        <div class="class3">
+          direct child text
+          <div class="class2">non-direct descendant text</div>
+        </div>
+      </div>
+    </div>
+    <h4>Other Selectors</h4>
+    <div>
+      <p>
+        There are many more other types of selectors, such as sibling selectors,
+        attribute selectors, ... Another helpful selector is selectors that
+        allow you to select an element that has multiple classes or a particular
+        tagname with a particular class (or classes).
+      </p>
+      <p>
+        If you want to select all elements that have the following classes:
+        class1 class2. Then use the following selector:
+      </p>
+      <pre>
+            <code>.class1.class2 {...}</code>
+        </pre>
+      <p>
+        The above selector would select elements that have their class attribute
+        set to "class1 class2", "class1 class2 class3", "class3 class2 class1",
+        etc. as long as both class1 and class2 are in the class values list.
+      </p>
+      <p>
+        If you want to select all p elements that have class p1:
+      </p>
+      <pre>
+            <code>p.p1 {...}</code>
+        </pre>
+    </div>
+
+    <hr />
+    <h2>CSS Box Model</h2>
+    <div>
+      <p>
+        The CSS box model is the way that HTML elements are defined - there are
+        actually 4 concentric boxes which are... (from innermost to outermost)
+      </p>
+      <ul>
+        <li>Content - this contains the actual text or image</li>
+        <li>Padding - this is the space between the content and the border.</li>
+        <li>
+          Border - space between the padding and margin, you can set its width,
+          style, and color properties.
+        </li>
+        <li>
+          Margin - usually invisible space between the end of one element and
+          the start of another.
+        </li>
+      </ul>
+      <p>Below is a diagram of the box model.</p>
+      <img
+        src="https://cdn-images-1.medium.com/max/565/1*6DrszcyPybYDGziiS9CWdg.png"
+        alt="CSS Box Model"
+      />
+      <div class="boxExample">This is the content.</div>
+    </div>
+
+    <h2>Units</h2>
+    <div>
+      <p>
+        There are several different types of values we can provide for styles,
+        each has their own units.
+      </p>
+      <ul>
+        <li>
+          Sizes
+          <ul>
+            <li>
+              Absolute
+              <ul>
+                <li>px - pixels</li>
+                <li>mm - millimeters</li>
+                <li>cm - centimeters</li>
+                <li>in - inches</li>
+                <li>pt - points (1/72 of an inch)</li>
+                <li>pc - picas (12 points)</li>
+              </ul>
+            </li>
+            <li>
+              Relative
+              <ul>
+                <li>% - precentage relative to parent element's width</li>
+                <li>
+                  em - 1em is the same as the font size of the current element
+                </li>
+                <li>
+                  rem - stands for "root em" and works the same except refers to
+                  the base font size.
+                </li>
+                <li>
+                  vh, vw - these are 1/100th of the height and width of the
+                  viewport respectively.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Colors
+          <ul>
+            <li>keywords</li>
+            <li>hex value - <code>#</code> followed by siz hex numbers (0-F)</li>
+            <li>rgb(a) - a function to specify values for red, green, and blue channels.</li>
+            <li>hsl(a) - a function to specify hue, saturation, and lightness values to define a color.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <hr/>
+    <div>
+        <p>
+            remember how talked about ids? and how they have to be unique? We can use ids to link to different elements in a page. For example: <a href="#top">this link will send you to the top of the page.</a>
+        </p>
+    </div>
+  </body>
+</html>

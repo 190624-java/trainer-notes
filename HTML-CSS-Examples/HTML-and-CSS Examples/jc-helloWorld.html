@@ -1,0 +1,73 @@
+<!-- this is how we make comments in HTML -->
+<!--
+    None of this will be rendered.
+    Because it's a comment.
+-->
+<!-- 
+    HTML stands for Hypertext Markup Language
+    - defines the structure of a webpage.
+    - browsers parse the html tags and render the content
+    - we can open this in a web browser
+-->
+<!-- This is an HTML document. how do we know? -->
+<!DOCTYPE html> <!-- this is how we know.-->
+
+<!--
+    "tags" define structure of page
+    first tag is the "doctype" tag - tells the browser which version of html we are using.
+    The "html" doctype says we are using html5.
+
+    The next tag we need is the <html> tag.
+    A tag is defined using the < > symbols to define an "element"
+    tags can be self closing or have a matching closing tag.
+-->
+<html>
+    <head>
+        <!-- this is where we define metadata for the page -->
+        <!-- not rendered on the page. -->
+        <title>HTML - Hello World</title>
+        <!-- typically the title will be displayed as the tab name in a web browser -->
+    </head>
+    <body>
+        <!-- this is where your rendered content goes. This is where you put the actual content of the page. -->
+        Hello World! This text will actually render on the screen.
+        <br> <!-- a self closing tag that specifies a line break. -->
+        <br/>
+        <div>
+            We can use tags like <code>&lt;div&gt;</code> within the body. A "div" specifies a division of the page. A "div" is a block-level element - which start a new "block" on the next line. As opposed to inline elements - which are created in-line. (span is an example of an inline element.)
+            <!--
+                note: we need to escape special characters that are markup-sensitive. such as "<", which we can specify by using "&lt;". otherwise it's treated like an html symbol.
+            -->
+        </div>
+        <div>
+            <p> <!--paragraph tag-->
+                Here's a list of some character 
+                <a target="_blank" 
+                href="https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references"><!--anchor tag-->
+                    <!-- target - specifies where this link should open up. 
+                        _blank - a new tab/window
+                        _self - the current window/tab
+                        _parent - the parent window
+                    -->
+                    escape sequences
+                </a>.
+            </p>
+        </div>
+        <p>
+            The <code>&lt;span&gt;</code> tag is an inline tag- it renders inline with the text around it. Spans are commonly used for styling parts of text inline with other text.
+            the <code>&lt;code&gt;</code> tag is another inline tag.
+            <br/>
+            If we want to make text <strong>bold</strong>, we can use the "strong" tag or we can use the <b>"b"</b> tag.
+            To italicize, we can use the <i>"i" tag</i> or the <em>"em" tag</em>.
+        </p>
+        <p>
+            An <b>attribute</b> is a property of a tag that consists of <strong>key-value pairs</strong>. Attributes go inside of the tag itself in the format of <b>attributeName</b>=<em>"attributeValue"</em>. 
+        </p>
+        <p>
+            using what we just learned, 
+            <a href="./jc-advancedHTML.html">
+                let's go to the next page
+            </a>!
+        </p>
+    </body>
+</html><!--this is the closing html tag-->

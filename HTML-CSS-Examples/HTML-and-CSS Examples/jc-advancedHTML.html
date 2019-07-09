@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- defines the character encoding for the page. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Advanced HTML</title>
+</head>
+<body>
+    <h1>Headings</h1>
+    <p>
+        There are 6 different levels of headings we can utilize. using <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>.
+    </p>
+    <h2>I'm a second level heading</h2>
+    <p>
+        Notice the "h2" heading is smaller than the "h1", this is because of browser default styling for the heading tags.
+        <br/>
+        The level of the heading should be representative of the importance of the heading. Because you can style an h1 to look the same as an h6, it's important to keep in mind that the different tags represent what kind of content is contained within them.
+    </p>
+    <h2>Lists</h2>
+    <p> There are several different types of lists that you can create in html. </p>
+    <ul>
+        <!-- unordered list -->
+        <li>The <code>&lt;ul&gt;</code> tag is for unordered lists</li>
+        <li>The <code>&lt;ol&gt;</code> tag is for ordered lists</li>
+        <li>The <code>&lt;dl&gt;</code> tag is for description lists (this is less frequently used)</li>
+    </ul>
+    <p>
+        The "ul" and "ol" tags use the <code>&lt;li&gt;</code> tag for list items.
+        <br/>
+        The "dl" tag uses <code>&lt;dt&gt;</code> and <code>&lt;dd&gt;</code> tags for definition terms and descriptions.
+    </p>
+    <p><em>Note: </em> you <strong>cannot</strong> place a list tag inside of a paragraph tag.</p>
+    <h3>Ordered List</h3>
+    <!--
+        The ordered list tag has a "type" attribute that determines the type of numbering/lettering.
+        type="A" - A, B, C, ...
+        type="a" - a, b, c, ...
+        type="1" - this is the default. 1, 2, 3, ...
+        type="I" - I, II, III, ...
+        type="i" - i, ii, iii, ...
+     -->
+    <ol>
+        <li>first item</li>
+        <li>second item</li>
+        <li>third item</li>
+    </ol>
+    <h3>Descriptive list</h3>
+    <dl>
+        <dt>Milk</dt>
+        <dd>is yummy. especially strawberry.</dd>
+        <dt>Fruit</dt>
+        <dd>oranges, apples</dd>
+        <dd>bananas, pears</dd>
+        <dt>Cheese</dt>
+        <dd>This grocery list has a significant amount of dairy.</dd>
+    </dl>
+    <br/>
+    <h2>Images</h2>
+    <p> We can use the <code>&lt;img&gt;</code> tag to include images in our page.</p>
+    <img src="https://www.thehappycatsite.com/wp-content/uploads/2018/06/ragdoll-cat-colors-header.jpg" alt="Ragdoll Kitten Photo" width="500"/>
+
+    <h2>Tables</h2>
+    <div>
+        <ul>
+            <li>*<code>&lt;caption&gt;</code> - define a caption for the table, if used it must go immediately after the table tag.</li>
+            <li>*<code>&lt;thead&gt;</code> - defines a header row for the table. </li>
+            <li>*<code>&lt;th&gt;</code> - defines a table header cell. </li>
+            <li>*<code>&lt;tbody&gt;</code> - defines the body of the table.</li>
+            <li>*<code>&lt;tfoot&gt;</code> - defines the footer section of a table.</li>
+            <li><code>&lt;tr&gt;</code> - defines a row of the table. </li>
+            <li><code>&lt;td&gt;</code> - defines a table data cell in the body.</li>
+        </ul>
+        <p>A sample table is shown below:</p>
+        <table>
+            <caption>some caption text here</caption>
+            <thead>
+                <tr>
+                    <th>Header A</th>
+                    <th>Header B</th>
+                    <th>Header C</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cell 1A</td>
+                    <td>Cell 1B</td>
+                    <td>Cell 1C</td>
+                </tr>
+                <tr>
+                    <td>Cell 2A</td>
+                    <td>Cell 2B</td>
+                    <td>Cell 2C</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Footer A</td>
+                    <td>Footer B</td>
+                    <td>Footer C</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <h2>Forms</h2>
+    <p>Forms are pretty important. You'll use them to get input from the user. A list of common tags are below</p>
+    <ul>
+        <li>form - for specifying an entire form.</li>
+        <li>input - represents  some kind of user input, depending on the type attribute:
+            <ul>
+                <li>text - for inline text</li>
+                <li>number</li>
+                <li>color - displays a color picker</li>
+                <li>date - displays a date picker</li>
+                <li>file</li>
+                <li>range - specifies a range of numbers; use min and max attributes.</li>
+                <li>tel - telephone number</li>
+                <li>password - hides the characters entered.</li>
+                <li>radio - group of options where the user can only select one.</li>
+                <li>checkbox - group of options where the user can select multiple.</li>
+            </ul>
+        </li>
+        <li>button - user-clickable button</li>
+        <li>select - creates a drop down menu with options specified by the "option" tag.</li>
+        <li>textarea - multi-lined, resizable text field.</li>
+        <li>label - defines a label for an input element.</li>
+    </ul>
+    <!--
+        Form inputs can have the "name" attribute to identify the fields. The values of the name attributes are used as the keys for the user data when the form is submitted and sent to a server for processing.
+    -->
+    <h4>Simple Example Form:</h4>
+    <form>
+        <div>
+            Enter your first name:
+            <input type="password" name="firstname" placeholder="placeholder text"/>
+            <input type="text" name="otherfirstname" value="Default Text"/>
+        </div>
+        <div>
+            Date of birth:
+            <input type="date" name=""/>
+        </div>
+        <div>
+            Favorite color:
+            <input type="color" name=""/>
+        </div>
+        <div>
+            Pick a number in the range:
+            <input type="range" name="" min="1" max="5"/>
+        </div>
+        <div> 
+            Select an option:
+            <select>
+                <option value="1">first</option>
+                <option value="2">second</option>
+                <option value="3">third</option>
+            </select>
+        </div>
+        <div>
+            Select multiple options:
+            <input type="checkbox" name="check1" value="1"> option1
+            <input type="checkbox" name="check1" value="2"> option2
+            <input type="checkbox" name="check1" value="3"> option3
+        </div>
+        <div>
+            Select only one option:
+            <input type="radio" name="radio1" value="1"> option1
+            <input type="radio" name="radio1" value="2"> option2
+            <input type="radio" name="radio1" value="3"> option3
+            <br/>
+            <input type="radio" name="radio2" value="4"> option4
+        </div>
+        <div>
+            <button type="button" name="btn">Click me! I'm a button!!</button>
+        </div>
+    </form>
+
+    <h2>HTML5 Semantic Elements</h2>
+    <div>
+        <p>
+            HTML5 is the newest version of HTML, many tags were deprecated but new tags were introduced. Point of new html5 tags is to make HTML markup more <em>semantic</em> - meaning the tags should reflect the meaning of the content, defining more clearly what the content is, not just how it is displayed. Here are some html5 tags:
+        </p>
+        <ul>
+            <li>header - defines the heading of a page.</li>
+            <li>footer</li>
+            <li>article - defines an article.</li>
+            <li>aside - content aside from the main content.</li>
+            <li>nav - navigation section.</li>
+            <li>main - main content of the page.</li>
+            <li>section - logically split content into sections.</li>
+            <li>details - additional details a user can view or hide.</li>
+            <li>summary</li>
+            <li>mark - <mark>marked/highlighted</mark> text</li>
+        </ul>
+    </div>
+    <!-- Content doesnt render differently, they are basically wrapper tags. -->
+    <footer>This content is within a footer.</footer>
+    <header>This is content within a header.</header>
+    <div>
+        There are very many HTML tags, we haven't even touched on most of them. <a href="https://www.w3schools.com/tags/">List of HTML tags</a>. 
+        Now we will move on to talk about styling. <a href="./jc-introToCSS.html">GO TO Next Page!</a>
+    </div>
+</body>
+</html>

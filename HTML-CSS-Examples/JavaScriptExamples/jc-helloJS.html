@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello JavaScript</title>
+</head>
+<body>
+    
+    <script>
+        /* script can never be self closing.
+        can be used to write internal javascript, or
+        to link to an external .js file */
+
+        //looking at data types
+        function logType(input){
+            console.log('input is: ' + input + '\n\tand is type of: ' + typeof(input));
+            /*console.log(`input is: ${input}
+                and is type of: ${typeof(input)}`);
+            */
+        }
+        var a = "hello";
+        logType(a);
+        //run some more examples in the console.
+
+        //strings in js
+        var c = 'hello';
+        var d = "world";
+
+        //introduced in 2015 with ES 6 standard
+        //template literals! (:
+        var tempLiteral = `you can use bactick to
+        create 
+        multiline strings and also (!) allow for
+        string interpolation... 
+        c = ${c}
+        d = ${d}
+        5 + 5 = ${5+5}`;
+        //string interpolation allows you to evaluate expressions and print out the value dynamically.
+        //use ${expr} syntax
+        console.log(tempLiteral);
+
+        //Equality operators
+        // == tries to ignore type and compare value
+            //this is known as type coercion
+        // === will compare both type and value, or in other words
+        //  are they the same in memory?
+
+        function compare(one, two){
+            console.log(`
+            one = ${one}, and is type: ${typeof(one)}
+            two = ${two}, and is type: ${typeof(two)}
+                one == two evaluates to: ${one == two}
+                one === two evaluates to: ${one === two}
+            `);
+        }
+        console.log("== and === comparison examples:");
+        compare(5, '5');
+        compare(97, 'a');
+        compare(null, undefined);
+        compare([],[]);
+        compare([], null);
+        compare(true, false);
+        compare(NaN, NaN);
+        compare(Infinity, Infinity);
+
+    </script>
+</body>
+</html>
