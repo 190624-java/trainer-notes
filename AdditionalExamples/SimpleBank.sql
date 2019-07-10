@@ -21,4 +21,8 @@ CREATE TABLE BankAccount (
     authorized_user NUMBER CONSTRAINT account_auth_user_fk REFERENCES BankUser(user_id)
 );
 /
+CREATE SEQUENCE user_type_seq
+START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE bank_user_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE bank_account_seq START WITH 1 INCREMENT BY 1;
 
