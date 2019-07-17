@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Hello Servlets!</title>
+	</head>
+	<body>
+		<h1>Hello World!</h1>
+		
+		<form method="POST" action="/servlets/app/hello">
+			<input type="text" name="word"/>
+			<input type="submit" value="Go!"/>
+		</form>
+		
+		<!-- Get request -->
+		<form method="GET" action="/servlets/app/hello">
+			<input type="submit" value="Go to Welcome Page"/>
+		</form>
+		
+		<br/>
+		<form method="GET" action="/servlets/app/redirect">
+			<input type="text" name="name" placeholder="Your Name"/>
+			<input type="submit" value="Submit!"/>
+		</form>
+	</body>
+</html>
