@@ -21,6 +21,7 @@ public class HeroServlet extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
+		System.out.println("Hero Servlet Ready To Go!");
 		try {
 			this.dao = new HeroDAOImplDB();
 		} catch (SQLException e) {
@@ -31,9 +32,8 @@ public class HeroServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
-		if (session != null && session.getAttribute("username") != null) {
 			if (request.getRequestURI().contains("all")) {
+				System.out.println("contains all");
 				// get heroes from db
 				List<Hero> allHeroes = dao.getAllHeroes();
 				ObjectMapper mapper = new ObjectMapper();
@@ -41,10 +41,6 @@ public class HeroServlet extends HttpServlet {
 			} else {
 				request.getRequestDispatcher("/index.html").forward(request, response);
 			}
-		} else {
-			response.sendRedirect("/hero-app/app/login");
-		}
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

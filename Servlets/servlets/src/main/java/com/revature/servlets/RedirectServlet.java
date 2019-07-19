@@ -20,6 +20,9 @@ public class RedirectServlet extends HttpServlet {
 		//set session attributes
 		request.getSession().setAttribute("name", name);
 		
+		//Access servlet context parameters
+		request.getServletContext().getInitParameter("appLevel");
+		
 		//redirect the client (server tells the client to go to a page)
 		/*
 		 * Redirect

@@ -5,9 +5,21 @@
     <!-- <welcome-file>index.html</welcome-file>-->
     <welcome-file>pet-pages/petHome.html</welcome-file>
   </welcome-file-list>
+  <!-- Servlet Context Params -->
+  <context-param>
+  	<param-name>appLevel</param-name>
+  	<param-value>All Servlets..</param-value>
+  </context-param>
+  
+  
   <servlet>
     <servlet-name>hello</servlet-name>
     <servlet-class>com.revature.servlets.HelloServlet</servlet-class>
+    <!-- Servlet Config Params -->
+    <init-param>
+    	<param-name>someValue</param-name>
+    	<param-value>Hello</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>hello</servlet-name>

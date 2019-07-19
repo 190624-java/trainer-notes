@@ -2,10 +2,12 @@ var baseURL = 'http://localhost:8080/hero-app/';
 var heroes = [];
 
 document.getElementById("load").onclick = () => {
+	console.log('clicked');
     let xhr = new XMLHttpRequest();
     xhr.open("GET", baseURL + "app/hero/all");
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4){
+        	console.log(xhr.status);
             if(xhr.status === 200){
                 let resp = JSON.parse(xhr.response);
                 console.log(resp);

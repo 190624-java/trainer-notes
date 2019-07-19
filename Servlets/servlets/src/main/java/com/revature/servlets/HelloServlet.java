@@ -35,6 +35,10 @@ public class HelloServlet extends HttpServlet{
 		//store a variable in the request
 		//req.setAttribute("someword", word);
 		
+		//getting servlet config param
+		getServletConfig().getInitParameter("someValue");
+		
+		
 		//forward the request. (happens on serverside)
 		/*
 		 * Forwards
