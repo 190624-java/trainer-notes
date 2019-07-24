@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.revature.beans.Player" table="PLAYER">
+		<id name="playerId" type="int"> <!-- primary key property -->
+			<column name="player_id"/>
+			<generator class="sequence">
+				<param name="sequence">PLAYER_ID_SEQ</param>
+			</generator>
+		</id>
+		<!-- 
+			property -> Java Class Property
+			column -> SQL Table Column
+		 -->
+		 <property name="username" type="string">
+		 	<column name="username" />
+		 </property>
+		 <property name="playerLevel" type="int">
+		 	<column name="player_level" />
+		 </property>
+	</class>
+</hibernate-mapping>

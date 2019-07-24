@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<!-- Configure SessionFactory -->
+	<session-factory>
+		<!-- configure our JDBC connections -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@jcol-sql-demo-db.chueiwozbnfz.us-east-1.rds.amazonaws.com:1521:ORCL</property>
+		<property name="hibernate.connection.username">jcol190624</property>
+		<property name="hibernate.connection.password">MyDBPass123$</property>
+		
+		<!-- You can configure more advanced properties -->
+		<property name="hibernate.connection.pool_size">10</property>
+		<property name="hibernate.show_sql">true</property>
+		
+		<!--  DONT FORGET to configure your SQL Dialect! -->
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		
+		<!-- NEVER EVER EVER use this in PRODUCTION -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		
+		<!-- 
+			Hibernate Mapping References...
+				You NEED ONE for ALLLLLLL of your beans!!!
+				Doesn't matter if you use annotations or HBM for mapping
+		 -->
+		 <mapping resource="Player.hbm.xml"/>
+		 
+		 <mapping class="com.revature.beans.realistic.Student"/>
+		 <mapping class="com.revature.beans.realistic.Computer"/>
+		 <mapping class="com.revature.beans.realistic.Course"/>
+		 <mapping class="com.revature.beans.realistic.Classes"/>
+		
+	</session-factory>
+</hibernate-configuration>
