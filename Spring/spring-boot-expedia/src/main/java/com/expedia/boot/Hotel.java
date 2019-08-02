@@ -1,60 +1,15 @@
-package com.revature.boot.beans;
+package com.expedia.boot;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-
-import org.hibernate.validator.constraints.Length;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-/*
- * We can add validation that follows the JSR303 specification for bean validation
- */
-
-@ApiModel
-@Entity
-@Table(name = "HOTEL_ROOM")
 public class Hotel {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
-	@ApiModelProperty(example = "Two Queen Suite")
-	@Column
-	@NotEmpty(message = "Description can't be null or empty.")
-	@Length(min = 1, max = 250)
 	private String description;
-	
-	@Column
-	@Min(value = 0)
 	private double price;
-	
-	@Column
-	@Min(1)
-	@Max(10)
 	private int occupancy;
-	
-	@Column
-	@Min(1)
-	@Max(3)
 	private int beds;
-	
-	/*
-	 * If we had a child object property. 
-	 * @Valid
-	 * ensures that the child object is also valid
-	 */
-	
-	public Hotel() {}
+
+	public Hotel() {
+	}
 
 	public Hotel(String description, double price, int occupancy, int beds) {
 		super();

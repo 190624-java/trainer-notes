@@ -2,11 +2,12 @@ package com.revature.boot.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.boot.beans.Hotel;
 import com.revature.boot.service.HotelService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /*
  * @RestController: combines @Controller with @ResponseBody
@@ -33,9 +37,9 @@ import com.revature.boot.service.HotelService;
  * 	produces - MediaType of response body
  * 
  */
-
+@Api(value = "Hotel API")
 @RestController
-@RequestMapping(value = "/api/v1/rooms/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/v1/rooms/")
 public class HotelController {
 
 	private static final Logger log = Logger.getLogger(HotelController.class);
@@ -47,9 +51,9 @@ public class HotelController {
 	 * @RequestBody says to read the Http request body, parse it, and marshall it from
 	 * JSON into a Java Object
 	 */
-	
+	@ApiOperation(value="Save New Hotel Room", consumes="application/json")
 	@PostMapping("/room")
-	public ResponseEntity<Hotel> save(@RequestBody Hotel room) {
+	public ResponseEntity<Hotel> save(@Valid @RequestBody Hotel room) {
 		return new ResponseEntity<Hotel>(service.save(room), HttpStatus.CREATED);
 		// this is going to return a 201 if the record is successfully created
 	}
